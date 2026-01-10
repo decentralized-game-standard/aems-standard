@@ -232,4 +232,37 @@ This example shows how AEMS supports diverse games while keeping the schema DRY 
 
 AEMS provides a standardized, decentralized framework for game entities across all genres. By splitting entities into **Asset**, **Entity**, **Manifestation**, and **State**, and leveraging Liquid, Nostr, and game logic, it solves challenges around customization, ownership, and interoperability. Its simplicity and flexibility make it a powerful tool for the future of gaming.
 
-As a FOSS standard, AEMS invites community contributions. Fork, star, or submit a PR to help shape decentralized game development!****
+## Prototype Path
+
+Start small, build up. Here's how to get hands-on with AEMS:
+
+### Tier 1: Create an Entity (No Code)
+Open any Nostr client (e.g., [Primal](https://primal.net), [Damus](https://damus.io)) and post a note with this content:
+```json
+{ "name": "Iron Sword", "type": "item", "purpose": "A basic melee weapon" }
+```
+That's it—you've created a decentralized game entity. Anyone can read it, any game can interpret it.
+
+### Tier 2: Read Entities in a Game
+Build a simple game or script that fetches entities from a Nostr relay:
+- Query for notes with `["type", "item"]` tags
+- Display them in your game's inventory
+- You're now reading decentralized data
+
+### Tier 3: Add State and Ownership
+- Create a **Manifestation** for your game (your interpretation of the entity)
+- Track **State** for entity instances (e.g., durability, uses)
+- Optionally link to **Assets** on Liquid for true ownership
+
+## Related Standards
+
+AEMS is part of the [Decentralized Game Standard](../../.github/profile/README.md) ecosystem:
+
+| Standard | How It Relates |
+|----------|----------------|
+| [Forge-Engine](../forge-engine/README.md) | Entities flow through Forge-Engine processors as data |
+| [Stream Protocol](../stream-layer/README.md) | Incentivize entity creation, curation, and hosting with sats |
+
+## Contributing
+
+As a FOSS standard, AEMS invites community contributions. Fork, star, or submit a PR to help shape decentralized game development!
