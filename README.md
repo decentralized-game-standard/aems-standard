@@ -2,6 +2,10 @@
 
 **A Nostr-Native Protocol for Durable, Community-Defined Game Entities — Conceptual, 2026-01-14**
 
+🏠 **[Overview](https://github.com/decentralized-game-standard)** · 🔧 **[GERS](https://github.com/decentralized-game-standard/gers-standard)** · ⚡ **[WOSS](https://github.com/decentralized-game-standard/woss-standard)** · 📜 **[Ludic](https://github.com/decentralized-game-standard/ludic-standard)** · ❓ **[FAQ](https://github.com/decentralized-game-standard/.github/blob/main/profile/FAQ.md)**
+
+---
+
 Physical game pieces endure because they are independent objects, interpreted by whatever rules players agree upon. A chess rook can move under standard rules today, a variant tomorrow, or serve as a decoration indefinitely. The piece itself carries no embedded logic—it simply exists, owned and transferred through physical custody or social agreement.
 
 Digital equivalents have been designed differently: items, characters, and worlds are database entries controlled by servers. When servers stop, the assets vanish. Attempts to fix this with blockchain-based NFTs or Ordinals introduced new problems—speculative volatility, broken metadata links, chain-specific lock-in—without delivering reliable persistence or meaningful interoperability.
