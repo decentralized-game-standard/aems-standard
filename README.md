@@ -1,6 +1,6 @@
 # AEMS: Asset-Entity-Manifestation-State
 
-**A Nostr-Native Protocol for Durable, Community-Defined Game Entities — Version 0.2 (Conceptual) — January 2026**
+**A Nostr-Native Protocol for Durable, Community-Defined Game Entities — Conceptual, 2026-01-14**
 
 Physical game pieces endure because they are independent objects, interpreted by whatever rules players agree upon. A chess rook can move under standard rules today, a variant tomorrow, or serve as a decoration indefinitely. The piece itself carries no embedded logic—it simply exists, owned and transferred through physical custody or social agreement.
 
@@ -32,7 +32,7 @@ For game entities:
 
 - **True Permissionless Participation** — Publish an entity definition or transfer ownership instantly, from any client, to any relay. No gas fees, no chain congestion, no approval. Relays can filter spam but cannot prevent publication—clients simply connect elsewhere.
 
-- **Practical Persistence** — Data lives as long as relays mirror it. Communities preserve valued entities by running dedicated relays or archiving events. This has proven effective for social content; the same applies to curated game concepts. If you are the only person that values your aems items, you can back up the NOSTR events yourself and store them on a hard drive fro 80 years like a Pokemon Card in your closet. No reliance on external comminuties needed at all.
+- **Practical Persistence** — Data lives as long as relays mirror it. Communities preserve valued entities by running dedicated relays or archiving events. This has proven effective for social content; the same applies to curated game concepts. If you are the only person that values your AEMS items, you can back up the Nostr events yourself and store them on a hard drive for 80 years like a Pokémon card in your closet. No reliance on external communities needed at all.
 
 - **Censorship Resistance Without Hype** — Unlike marketplace-dependent NFTs, no single entity controls visibility or validity. An entity definition remains queryable across the relay network indefinitely.
 
