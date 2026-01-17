@@ -2,7 +2,7 @@
 
 **A Nostr-Native Protocol for Durable, Community-Defined Game Entities — Conceptual, 2026-01-14**
 
-🏠 **[Overview](https://github.com/decentralized-game-standard)** · 🔧 **[GERS](https://github.com/decentralized-game-standard/gers-standard)** · ⚡ **[WOSS](https://github.com/decentralized-game-standard/woss-standard)** · 📜 **[Ludic](https://github.com/decentralized-game-standard/ludic-standard)** · ❓ **[FAQ](https://github.com/decentralized-game-standard/.github/blob/main/profile/FAQ.md)**
+🏠 **[Overview](https://github.com/decentralized-game-standard)** · 🔧 **[GERS](https://github.com/decentralized-game-standard/gers-standard)** · ⚡ **[WOSS](https://github.com/decentralized-game-standard/woss-standard)** · ❓ **[FAQ](https://github.com/decentralized-game-standard/.github/blob/main/profile/FAQ.md)**
 
 ---
 
