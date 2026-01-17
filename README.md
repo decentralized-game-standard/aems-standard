@@ -42,6 +42,20 @@ For game entities:
 
 Nostr already handles replaceable and parameterized events (NIP-33), enabling versioned, identifier-based data—ideal for evolving entity definitions and unique instances.
 
+## What AEMS Deliberately Excludes
+
+AEMS follows the discipline of minimal protocols. Like TCP/IP excludes content semantics and MIDI excludes audio, AEMS excludes functionality that belongs in higher layers:
+
+| Excluded | Why | Where It Belongs |
+|----------|-----|------------------|
+| **Databases/indexing** | Protocol defines structure, not storage | Relay operators, game clients |
+| **Marketplaces** | Protocol enables transfers, not commerce | Third-party platforms via WOSS |
+| **Validation logic** | Protocol defines events, not business rules | Game-specific Manifestations |
+| **Namespacing/registries** | Protocol is permissionless, not curated | Community convention, reputation |
+| **Rich metadata standards** | Protocol is minimal, not comprehensive | Application-layer schemas |
+
+If AEMS tried to be a complete asset management system, it would become a platform to capture rather than infrastructure to build on. The deliberate gaps are where your applications live.
+
 ## Technical Structure: Four Layers as Nostr Events
 
 AEMS defines four interconnected event kinds, all standard signed Nostr events.
