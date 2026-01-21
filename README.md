@@ -2,7 +2,7 @@
 
 **A Nostr-Native Protocol for Durable, Community-Defined Game Entities — Conceptual, 2026-01-14**
 
-🏠 **[Overview](https://github.com/decentralized-game-standard)** · 🔧 **[GERS](https://github.com/decentralized-game-standard/gers-standard)** · ⚡ **[WOSS](https://github.com/decentralized-game-standard/woss-standard)** · ❓ **[FAQ](https://github.com/decentralized-game-standard/.github/blob/main/profile/FAQ.md)**
+🏠 **[Overview](https://github.com/decentralized-game-standard)** · 🔧 **[RUNS](https://github.com/decentralized-game-standard/runs-standard)** · ⚡ **[WOCS](https://github.com/decentralized-game-standard/wocs-standard)** · ❓ **[FAQ](https://github.com/decentralized-game-standard/.github/blob/main/profile/FAQ.md)**
 
 ---
 
@@ -49,7 +49,7 @@ AEMS follows the discipline of minimal protocols. Like TCP/IP excludes content s
 | Excluded | Why | Where It Belongs |
 |----------|-----|------------------|
 | **Databases/indexing** | Protocol defines structure, not storage | Relay operators, game clients |
-| **Marketplaces** | Protocol enables transfers, not commerce | Third-party platforms via WOSS |
+| **Marketplaces** | Protocol enables transfers, not commerce | Third-party platforms via WOCS |
 | **Validation logic** | Protocol defines events, not business rules | Game-specific Manifestations |
 | **Namespacing/registries** | Protocol is permissionless, not curated | Community convention, reputation |
 | **Rich metadata standards** | Protocol is minimal, not comprehensive | Application-layer schemas |
@@ -148,10 +148,10 @@ Validity proven by traversing signed events backward to genesis.
 
 ## Integration with the Ecosystem
 
-- **GERS Engines** — Import AEMS Entities as Records. Apply Manifestations to select Processors. Update State Fields during simulation.
-- **WOSS Coordination** — Commission new Entities or Manifestations via offers settled in sats. Trade instances permissionlessly.
+- **RUNS Engines** — Import AEMS Entities as Records. Apply Manifestations to select Processors. Update State Fields during simulation.
+- **WOCS Coordination** — Commission new Entities or Manifestations via offers settled in sats. Trade instances permissionlessly.
 
-An item earned in one game persists on Nostr. Another GERS-based engine can query, manifest differently, and continue the story.
+An item earned in one game persists on Nostr. Another RUNS-based engine can query, manifest differently, and continue the story.
 
 ## Prototype Path
 
