@@ -49,7 +49,7 @@ What AEMS Deliberately Excludes
 
 
 
-ExcludedWhyWhere It BelongsDatabases/indexingProtocol defines structure, not storageRelay operators, clientsMarketplacesProtocol enables transfers, not commerceThird-party platforms (e.g., WOCS)Validation logicProtocol defines events, not rulesGame-specific ManifestationsNamespacing/registriesProtocol is permissionlessCommunity convention, reputationRich metadata standardsProtocol is minimalApplication-layer schemas
+ExcludedWhyWhere It BelongsDatabases/indexingProtocol defines structure, not storageRelay operators, clientsMarketplacesProtocol enables transfers, not commerceThird-party platforms and coordination layersValidation logicProtocol defines events, not rulesGame-specific ManifestationsNamespacing/registriesProtocol is permissionlessCommunity convention, reputationRich metadata standardsProtocol is minimalApplication-layer schemas
 Technical Structure: Four Layers as Nostr Events
 
 
@@ -151,7 +151,7 @@ JSON{
 Integration
 
 RUNS: Import Entities as Records, apply Manifestations for Processors, update State.
-WOCS: Coordinate commissions or trades.
+WOCS: Coordinate ongoing work—server hosting, asset creation, provenance audits.
 
 Entities persist on Nostr; different engines can interpret them variably.
 Getting Started
