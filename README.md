@@ -2,7 +2,7 @@
 
 **A Nostr-Native Protocol for Durable, Community-Defined Game Entities** — Conceptual, 2026-01-21
 
-[🏠 Overview](https://github.com/decentralized-game-standard) · [🔧 RUNS](https://github.com/decentralized-game-standard/runs-standard) · [⚡ WOCS](https://github.com/decentralized-game-standard/wocs-standard) · [❓ FAQ](https://github.com/decentralized-game-standard/.github/blob/main/profile/FAQ.md)
+[🏠 Overview](https://github.com/enduring-game-standard) · [🔧 RUNS](https://github.com/enduring-game-standard/runs-spec) · [⚡ WOCS](https://github.com/enduring-game-standard/wocs-protocol) · [🎭 MAPS](https://github.com/enduring-game-standard/maps-notation) · [❓ FAQ](https://github.com/enduring-game-standard/.github/blob/main/profile/FAQ.md)
 
 ---
 
