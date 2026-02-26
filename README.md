@@ -4,7 +4,7 @@
 
 Conceptual, 2026-01-21
 
-[🏠 Overview](https://github.com/enduring-game-standard) · [🔧 RUNS](https://github.com/enduring-game-standard/runs-spec) · [⚡ WOCS](https://github.com/enduring-game-standard/wocs-protocol) · [🎭 MAPS](https://github.com/enduring-game-standard/maps-notation) · [❓ FAQ](https://github.com/enduring-game-standard/.github/blob/main/profile/FAQ.md)
+[🏠 Overview](https://github.com/enduring-game-standard) · [🔧 RUNS](https://github.com/enduring-game-standard/runs-spec) · [⚡ WOCS](https://github.com/enduring-game-standard/wocs-protocol) · [🎼 MAPS](https://github.com/enduring-game-standard/maps-notation) · [❓ FAQ](https://github.com/enduring-game-standard/.github/blob/main/profile/FAQ.md)
 
 ---
 
