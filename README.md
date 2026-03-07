@@ -20,7 +20,7 @@ AEMS takes a different approach. It defines game entities as plain, signed Nostr
 
 A sword is not a product. It is a concept that predates any game containing it. Every RPG that features swords shares an archetype; what differs is the interpretation. The same is true of health potions, playing cards, chess pieces, and every other entity that appears across multiple games.
 
-AEMS treats genre entities as community-defined types rather than author-locked tokens. A "Health Potion" is a universal archetype that anyone can publish and any game can reference. Dark Souls interprets it as an Estus Flask. Final Fantasy VII interprets it as a Potion. Minecraft interprets it as a Splash Potion. Each interpretation is a game-specific Manifestation of the same underlying Entity. The archetype belongs to no one and is available to everyone.
+AEMS treats game entities as community-defined roles rather than author-locked tokens. A "Health Potion" is a universal role — a named concept — that anyone can publish and any game can reference. Dark Souls interprets it as an Estus Flask. Final Fantasy VII interprets it as a Potion. Minecraft interprets it as a Splash Potion. Each interpretation is a game-specific Manifestation of the same underlying Entity. The role belongs to no one and is available to everyone.
 
 This is possible because AEMS entities are [Nostr](https://nostr.com) events — published to open relays, discoverable by anyone with a relay connection, forkable without permission, and persistent without any single relay's cooperation. Nostr is not an implementation detail. It is the commons that makes AEMS entities findable, composable, and durable. The same properties that make Nostr a credible social protocol — cryptographic identity, relay-distributed persistence, plain-text readability — make it a credible substrate for game entities that must outlast their creators.
 
@@ -53,7 +53,7 @@ archetype   interpret    instance  condition
 
 ### Entity (Kind 30050)
 
-A **universal archetype** — an immutable concept that exists independently of any game. Entities are maintained by communities, not studios. Think of an Entity as the genus in a taxonomy: "Health Potion," "Sword," "Playing Card." Any Nostr user can publish an Entity; the protocol imposes no registry and no gatekeeping.
+A **named role** — an IP-agnostic concept that exists independently of any game. Entities are maintained by communities, not studios. An Entity names what something IS in universal terms: "Sword," "Health Potion," "Monster." Any Nostr user can publish an Entity; the protocol imposes no registry and no gatekeeping. Entities carry no grouping tags — only a `d`-tag identifier, a human-readable `name`, and a plain-language description.
 
 ```json
 {
@@ -61,11 +61,9 @@ A **universal archetype** — an immutable concept that exists independently of 
   "pubkey": "...",
   "tags": [
     ["d", "health-potion"],
-    ["type", "consumable"],
-    ["category", "healing"]
+    ["name", "Health Potion"]
   ],
   "content": {
-    "name": "Health Potion",
     "description": "Restores vitality when used"
   }
 }
@@ -75,7 +73,7 @@ Entities use parameterized replacement: for a given `pubkey` and `d`-tag, relays
 
 ### Manifestation (Kind 30051)
 
-A **game-specific implementation** of an Entity. How a particular game interprets, expresses, and balances the universal archetype. Every Manifestation MUST include an `entity` tag referencing the parent Entity.
+A **game-specific implementation** of one or more Entities. How a particular game interprets, expresses, and balances the universal role. Every Manifestation MUST include at least one `entity` tag referencing a parent Entity. A Manifestation may reference multiple Entities, declaring all the roles the game object participates in.
 
 A Manifestation is the layer that a [RUNS](https://github.com/enduring-game-standard/runs-spec) Processor reads: it provides the concrete properties that the game engine acts on.
 
@@ -86,6 +84,8 @@ A Manifestation is the layer that a [RUNS](https://github.com/enduring-game-stan
   "tags": [
     ["d", "rpg-adventure:potion"],
     ["entity", "<entity_event_id>", "health-potion"],
+    ["category", "consumable"],
+    ["type", "healing"],
     ["property", "restore_amount", "100", "integer"],
     ["property", "stack_limit", "50", "integer"]
   ],
@@ -172,7 +172,7 @@ AEMS is deliberately minimal. It defines four event kinds, their structural rela
 | Rich metadata standards | Protocol is minimal | [AEMS Conventions](https://github.com/enduring-game-standard/aems-conventions), application-layer schemas |
 | Composites/hierarchies | Protocol defines atoms, not molecules | Application-layer composition |
 
-Higher-layer conventions — visual properties, composition rules, domain-specific schemas — belong in separate, optional community profiles. The [AEMS Conventions](https://github.com/enduring-game-standard/aems-conventions) companion provides recommended community conventions for interoperable implementations, including universal tag conventions (mandatory `entity` tags, namespacing via `d`-tags, consistent property naming) and domain-specific examples for playing cards, weapons, and enemies.
+Higher-layer conventions — visual properties, composition rules, domain-specific schemas — belong in separate, optional community profiles. The [AEMS Conventions](https://github.com/enduring-game-standard/aems-conventions) companion provides recommended community conventions for interoperable implementations, including universal tag conventions (mandatory `entity` tags, namespacing via `d`-tags, consistent property naming), the IP Boundary Principle, and domain-specific examples.
 
 The boundary: the **standard** defines the four event kinds and their structural relationships. **Conventions** recommend how to use them interoperably. If a detail concerns *what games should agree on* rather than *what the protocol requires*, it belongs in conventions.
 
@@ -184,15 +184,15 @@ AEMS is one protocol in a four-protocol architecture. Each protocol handles a di
 
 ### AEMS → RUNS
 
-AEMS defines the *things*. [RUNS](https://github.com/enduring-game-standard/runs-spec) defines the *engine* that processes them. A RUNS Processor reads AEMS Manifestations as input Records and transforms their State. The relationship is data to execution: AEMS provides the entities, RUNS provides the composable pipeline that makes them behave.
+AEMS defines the *things*. [RUNS](https://github.com/enduring-game-standard/runs-spec) defines the *game* — the composable execution environment that processes them. A RUNS Processor reads AEMS Manifestations as input Records and transforms their State. The relationship is data to execution: AEMS provides the entities, RUNS provides the composable pipeline that makes them behave.
 
 ### AEMS → WOCS
 
-[WOCS](https://github.com/enduring-game-standard/wocs-protocol) coordinates the *services* that maintain AEMS entities in multiplayer contexts — server hosting, state synchronization, anti-cheat verification. AEMS answers "what are the things?" WOCS answers "who runs the infrastructure that acts on them?"
+[WOCS](https://github.com/enduring-game-standard/wocs-protocol) coordinates the *infrastructure* that sustains the ecosystem — server hosting, anti-cheat services, asset creation, tournament pooling, and any other coordination need. AEMS answers "what are the things?" WOCS answers "who coordinates the work that keeps the ecosystem running?"
 
 ### AEMS → MAPS
 
-[MAPS Notation](https://github.com/enduring-game-standard/maps-notation) describes the *design grammar* of game mechanics. Where AEMS entities are concrete instances (a sword, a potion), MAPS patterns describe the structural relationships those instances participate in (a resource-acquire pattern, a locked-transition arc). A designer can notate the mechanical role of an Entity in MAPS and instantiate it in AEMS. Because Entities are open and discoverable, designers can study, fork, and extend each other's work across generations — the structural basis for cumulative craft.
+[MAPS Notation](https://github.com/enduring-game-standard/maps-notation) describes the *rules* of game mechanics. Where AEMS Entities define named roles (a sword, a monster), MAPS patterns describe the structural relationships those roles participate in (a resource-acquire pattern, a locked-transition arc). A designer notates the mechanical grammar in MAPS and instantiates the things in AEMS. Because both are open and discoverable, designers can study, fork, and extend each other's work across generations.
 
 ### Why Nostr
 
@@ -226,9 +226,9 @@ If migrating from earlier implementations:
 
 ## The Larger Vision
 
-AEMS exists because game entities should outlast the studios that create them. When a player earns a sword, that sword should persist the way a physical chess piece persists — not because a server keeps running, but because the entity was published to a commons that anyone can read and no one controls.
+AEMS exists because game entities should outlast the studios that create them. When a player earns a sword, that sword should persist the way a physical chess piece persists — not because a server keeps running, but because the entity was published to a commons that anyone can read and no one controls. And when a future game recognizes that sword's Entity reference and says "I know what a sword is," the item doesn't just survive — it transfers.
 
-This is one piece of a larger structural argument. Patient capital makes open protocols economically rational. Durable substrate ensures the artifacts survive. Cumulative craft transmits the knowledge of how to build them well. AEMS contributes to durable substrate: entities stored as open, readable events on a distributed commons, composable across games, maintainable by communities. For the full argument, see the [Enduring Game Standard overview](https://github.com/enduring-game-standard).
+This dual purpose — preservation and portability — is one piece of a larger structural argument. Patient capital makes open protocols economically rational. Durable substrate ensures the artifacts survive. Cumulative craft transmits the knowledge of how to build them well. AEMS contributes to durable substrate: entities stored as open, readable events on a distributed commons, composable across games, maintainable by communities. For the full argument, see the [Enduring Game Standard overview](https://github.com/enduring-game-standard).
 
 ---
 
