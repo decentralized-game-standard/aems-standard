@@ -75,7 +75,7 @@ Entities use parameterized replacement: for a given `pubkey` and `d`-tag, relays
 
 A **game-specific implementation** of one or more Entities. How a particular game interprets, expresses, and balances the universal role. Every Manifestation MUST include at least one `entity` tag referencing a parent Entity. A Manifestation may reference multiple Entities, declaring all the roles the game object participates in.
 
-A Manifestation is the layer that a [RUNS](https://github.com/enduring-game-standard/runs-spec) Processor reads: it provides the concrete properties that the game engine acts on.
+A Manifestation is the layer that a RUNS build process compiles into type definitions: it provides the concrete properties that Processors act on at runtime. Manifestations are resolved at build time, not queried per-frame.
 
 ```json
 {
@@ -184,7 +184,7 @@ AEMS is one protocol in a four-protocol architecture. Each protocol handles a di
 
 ### AEMS → RUNS
 
-AEMS defines the *things*. [RUNS](https://github.com/enduring-game-standard/runs-spec) defines the *game* — the composable execution environment that processes them. A RUNS Processor reads AEMS Manifestations as input Records and transforms their State. The relationship is data to execution: AEMS provides the entities, RUNS provides the composable pipeline that makes them behave.
+AEMS defines the *things*. [RUNS](https://github.com/enduring-game-standard/runs-spec) defines the *game* — the composable source that implements how things behave. At build time, AEMS Manifestations are compiled into type definitions and lookup tables that Processors reference. At load/save boundaries, AEMS Asset and State events persist player data to the commons. The relationship spans the full lifecycle: AEMS provides the entity definitions that RUNS source implements, and the persistence layer that preserves player state across sessions.
 
 ### AEMS → WOCS
 
